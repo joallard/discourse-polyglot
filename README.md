@@ -3,6 +3,15 @@
 * Specify a default locale for each domain name
 * Add current locale as preference when user registers
 
+### Caveat
+For this plugin to work, your Discourse revision must be a child of
+[my fork] (discourse/discourse#1922), which is (currently) probably not
+the case unless (1) the PR has been merged, or (2) you're using my fork.
+
+In short, this plugin needs User to have a `locale` field to work.
+
+[my fork]: https://github.com/discourse/discourse/pull/1922
+
 Install
 -------
 ```
