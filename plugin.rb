@@ -29,7 +29,7 @@ after_initialize do
       I18n.locale =
         if SiteSetting.allow_user_locale && current_user && current_user.locale.present?
           current_user.locale
-        elsif locale = DomainLocale.for(request.domain)
+        elsif locale = DomainLocale.for(request.host)
           locale
         else
           SiteSetting.default_locale
