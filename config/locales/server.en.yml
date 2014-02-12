@@ -1,0 +1,3 @@
+en:
+  site_settings:
+    domain_locales: A YAML map of domain to locales.
