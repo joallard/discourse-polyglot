@@ -10,7 +10,6 @@ after_initialize do
 
     # FORK
     def start
-      register_nickname
       set_locale
     end
 
