@@ -1,28 +1,39 @@
 # Polyglot for Discourse
+This plugin allows you to set a locale for each domain your forum is
+hosted on. For example, you might want to have a French locale by
+default on your French domain; and an English default locale on your
+main domain.
 
-* Specify a default locale for each domain name
-* Add current locale as preference when user registers
-
-### Caveat
-For this plugin to work, your Discourse revision must be a child of
-[my fork] (discourse/discourse#1922), which is (currently) probably not
-the case unless (1) the PR has been merged, or (2) you're using my fork.
-
-In short, this plugin needs User to have a `locale` field to work.
-
-[my fork]: https://github.com/discourse/discourse/pull/1922
+It also sets the user-preferred locale as the present one when the user
+registers.
 
 Install
 -------
-```
-$ cd plugins
-$ git clone https://github.com/joallard/discourse-polyglot.git polyglot
-```
-
 Restart your server.
 
 There will be a new setting in "polyglot", `domain_locales`. This
 contains a YAML hash of which domains should be in which language.
+
+### Docker
+Add the git-clone command in the after-code hooks in
+`containers/app.yml`. It should look like this:
+
+```yml
+hooks:
+  after_code:
+    - exec:
+        cd: $home/plugins
+        cmd:
+          - mkdir -p plugins
+          - git clone https://github.com/discourse/docker_manager.git
+          - git clone https://github.com/joallard/discourse-polyglot.git  # This one
+```
+
+### Naked setup (in Rails dir)
+```
+$ cd plugins
+$ git clone https://github.com/joallard/discourse-polyglot.git polyglot
+```
 
 Config
 ------
